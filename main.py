@@ -1,3 +1,4 @@
+'''
 from app.io.input import input_text, read_file, read_file_pandas
 from app.io.output import output_text, write_file, write_file_pandas
 
@@ -20,6 +21,19 @@ def main():
 
     # Write the pandas DataFrame result to a CSV file
     write_file_pandas('output_pandas.csv', df_from_file_pandas)
+'''
+import subprocess
+
+def main():
+    """
+    Main function to run the tests for the read_file and read_file_pandas functions.
+    It calls the corresponding test files using subprocess.
+    """
+    print("Running tests for read_file...")
+    subprocess.run(["python", "D:/study/BigData_Python/project_template/tests/tests_read_file.py"])
+
+    print("\nRunning tests for read_file_pandas...")
+    subprocess.run(["python", "D:/study/BigData_Python/project_template/tests/tests_read_file_pandas.py"])
 
 if __name__ == "__main__":
     main()
