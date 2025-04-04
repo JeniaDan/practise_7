@@ -8,7 +8,7 @@ def input_text():
     This function allows the user to input text via the console. The entered
     text will be returned as a string.
     """
-    pass
+    return input("Enter text: ")
 
 # 2
 def read_file(path: str):
@@ -19,7 +19,12 @@ def read_file(path: str):
     Returns:
         str: The contents of the file.
     """
-    pass
+    try:
+        with open(path, 'r', encoding='utf-8') as file:
+            content = file.read()
+        return content
+    except Exception as e:
+        return f"Error reading file '{path}': {e}"
 
 # 3
 def read_file_pandas(path: str):
@@ -30,4 +35,7 @@ def read_file_pandas(path: str):
     Returns:
         pandas.DataFrame: The data from the file as a DataFrame.
     """
-    pass
+    try:
+        return pd.read_csv(path)
+    except Exception as e:
+        return f"Error reading file '{path}': {e}"
